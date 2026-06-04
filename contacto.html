@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto - JRT</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#9FD5F5;
+}
+
+header{
+    background:#1B3B5C;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+.info{
+    margin-top:20px;
+    background:#f1f5f9;
+    padding:20px;
+    border-radius:10px;
+}
+
+.info h2{
+    color:#1e3a8a;
+    margin-bottom:15px;
+}
+
+.info p{
+    margin-bottom:12px;
+    font-size:17px;
+}
+
+.formulario{
+    margin-top:30px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+button{
+    background:#005F6E;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.mensaje{
+    margin-top:15px;
+    color:green;
+    font-weight:bold;
+}
+
+.boton{
+    display:inline-block;
+    margin-top:25px;
+    background:#005F6E;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:6px;
+}
+
+.boton:hover{
+    background:#1d4ed8;
+}
+
+footer{
+    margin-top:30px;
+    background:#00476B;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>Contacto JRT</h1>
+
+    <p>Ponte en contacto con nosotros</p>
+
+</header>
+
+<div class="container">
+
+    <div class="info">
+
+        <h2>Información de contacto</h2>
+
+        <p><strong>Empresa:</strong> Soporte Tecnico Profesional JRT</p>
+
+        <p><strong>Teléfono:</strong> 447 125 2752</p>
+
+        <p><strong>Correo:</strong> JordyR.Tech@gmail.com</p>
+
+        <p><strong>Ubicación:</strong> Maravatío, Michoacán</p>
+
+        <p><strong>Horario:</strong> Lunes a Viernes de 10:00 AM a 4:00 PM</p>
+
+    </div>
+
+    <div class="formulario">
+
+        <h2>Enviar mensaje</h2>
+
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="nombre">
+        </div>
+
+        <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" id="correo">
+        </div>
+
+        <div class="form-group">
+            <label>Mensaje</label>
+            <textarea id="mensajeTexto"></textarea>
+        </div>
+
+        <button onclick="enviarMensaje()">
+            Enviar mensaje
+        </button>
+
+        <div class="mensaje" id="mensaje"></div>
+
+    </div>
+
+    <a href="index.html" class="boton">
+        Volver al inicio
+    </a>
+
+</div>
+
+<footer>
+
+    2026 Soporte Tecnico Profesional JRT
+
+</footer>
+
+<script>
+
+function enviarMensaje(){
+
+    let nombre =
+    document.getElementById("nombre").value;
+
+    let correo =
+    document.getElementById("correo").value;
+
+    let mensaje =
+    document.getElementById("mensajeTexto").value;
+
+    if(nombre === "" || correo === "" || mensaje === ""){
+
+        alert("Completa todos los campos");
+        return;
+
+    }
+
+    document.getElementById("mensaje").innerHTML =
+    "Mensaje enviado correctamente";
+
+    document.getElementById("nombre").value = "";
+    document.getElementById("correo").value = "";
+    document.getElementById("mensajeTexto").value = "";
+
+}
+
+</script>
+
+</body>
+</html>

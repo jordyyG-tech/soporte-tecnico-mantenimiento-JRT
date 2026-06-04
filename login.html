@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inicio de Sesión - JRT</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#0f172a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-container{
+    background:white;
+    width:350px;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.login-container h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#1e3a8a;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.input-group input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.links{
+    text-align:center;
+    margin-top:15px;
+}
+
+.links a{
+    display:block;
+    margin-top:10px;
+    color:#2563eb;
+    text-decoration:none;
+}
+
+.links a:hover{
+    text-decoration:underline;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.logo img{
+    width:80px;
+    border-radius:50%;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzjTiIyitFAs1OQ_0CuBORp4rO-zUSvNZ6Eg&s" alt="Logo">
+    </div>
+
+    <h1>Iniciar Sesión</h1>
+
+    <form onsubmit="login(event)">
+
+        <div class="input-group">
+            <label>Correo electrónico</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Contraseña</label>
+            <input type="password" id="password" required>
+        </div>
+
+        <button type="submit">Entrar</button>
+
+    </form>
+
+    <div class="links">
+        <a href="registro.html">Crear cuenta</a>
+        <a href="recuperar.html">Olvidé mi contraseña</a>
+        <a href="index.html">Volver al inicio</a>
+    </div>
+
+</div>
+
+<script>
+
+function login(event){
+    event.preventDefault();
+
+    let user = document.getElementById("user").value;
+    let password = document.getElementById("password").value;
+
+    if(email === "admin@jrt.com" && password === "12345"){
+        alert("Inicio de sesión exitoso");
+        window.location.href = "index.html";
+    }else{
+        alert("User y/o contraseña incorrectos");
+    }
+}
+
+</script>
+
+</body>
+</html>

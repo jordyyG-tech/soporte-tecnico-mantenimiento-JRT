@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitácora - JRT</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#9FD5F5;
+}
+
+header{
+    background:#1B3B5C;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+textarea{
+    resize:none;
+    height:100px;
+}
+
+button{
+    background:#005F6E;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005F6E;
+}
+
+.bitacora-lista{
+    margin-top:30px;
+}
+
+.registro{
+    background:#f1f5f9;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.registro h3{
+    color:#1e3a8a;
+    margin-bottom:8px;
+}
+
+.fecha{
+    color:gray;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.boton{
+    display:inline-block;
+    margin-top:20px;
+    background:#005F6E;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:6px;
+}
+
+.boton:hover{
+    background:#005F6E;
+}
+
+footer{
+    background:#00476B;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+.registro button{
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.registro button:hover{
+    background:#b91c1c;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>Bitácora de Servicios</h1>
+
+    <p>Registro de trabajos realizados</p>
+
+</header>
+
+<div class="container">
+
+    <div class="form-group">
+        <label>Nombre del cliente</label>
+        <input type="text" id="cliente">
+    </div>
+
+    <div class="form-group">
+        <label>Servicio realizado</label>
+        <input type="text" id="servicio">
+    </div>
+
+    <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="descripcion"></textarea>
+    </div>
+
+    <button onclick="agregarBitacora()">
+        Guardar Bitácora
+    </button>
+
+    <div class="bitacora-lista" id="listaBitacora">
+
+    </div>
+
+    <a href="index.html" class="boton">
+        Volver al inicio
+    </a>
+
+</div>
+
+<footer>
+
+    2026 Soporte Tecnico Profesional JRT
+
+</footer>
+
+<script>
+
+window.onload = function(){
+
+    mostrarBitacoras();
+
+}
+
+function agregarBitacora(){
+
+    let cliente =
+    document.getElementById("cliente").value;
+
+    let servicio =
+    document.getElementById("servicio").value;
+
+    let descripcion =
+    document.getElementById("descripcion").value;
+
+    if(cliente === "" || servicio === "" || descripcion === ""){
+
+        alert("Completa todos los campos");
+        return;
+
+    }
+
+    let fecha =
+ new Date().toLocaleString();
+
+let bitacoras =
+JSON.parse(localStorage.getItem("bitacoras"))
+|| [];
+
+let folio =
+"JRT-" +
+String(bitacoras.length + 1)
+.padStart(4,"0");
+
+let nuevaBitacora = {
+
+    folio: folio,
+    cliente: cliente,
+    servicio: servicio,
+    descripcion: descripcion,
+    fecha: fecha
+
+};
+
+ 
+    bitacoras.push(nuevaBitacora);
+
+    localStorage.setItem(
+        "bitacoras",
+        JSON.stringify(bitacoras)
+    );
+
+    mostrarBitacoras();
+
+    document.getElementById("cliente").value = "";
+    document.getElementById("servicio").value = "";
+    document.getElementById("descripcion").value = "";
+
+}
+
+function mostrarBitacoras(){
+
+    let lista =
+    document.getElementById("listaBitacora");
+
+    lista.innerHTML = "";
+
+    let bitacoras =
+    JSON.parse(localStorage.getItem("bitacoras"))
+    || [];
+
+    bitacoras.forEach(function(item, index){
+
+        lista.innerHTML +=
+        `
+        <div class="registro">
+
+           <h3>${item.cliente}</h3>
+
+            <p>
+                <strong>Ticket:</strong>
+                 ${item.folio}
+            </p>
+
+            <div class="fecha">
+                ${item.fecha}
+            </div>
+
+            <p>
+                <strong>Servicio:</strong>
+                ${item.servicio}
+            </p>
+
+            <p>${item.descripcion}</p>
+
+            <br>
+
+            <button onclick="borrarBitacora(${index})">
+                Borrar registro
+            </button>
+
+        </div>
+        `;
+
+    });
+
+}
+
+function borrarBitacora(index){
+
+    let bitacoras =
+    JSON.parse(localStorage.getItem("bitacoras"))
+    || [];
+
+    let confirmar =
+    confirm("¿Deseas borrar esta bitácora?");
+
+    if(confirmar){
+
+        bitacoras.splice(index, 1);
+
+        localStorage.setItem(
+            "bitacoras",
+            JSON.stringify(bitacoras)
+        );
+
+        mostrarBitacoras();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

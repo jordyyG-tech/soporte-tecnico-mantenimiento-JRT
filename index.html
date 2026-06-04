@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soporte Tecnico Profesional</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#9FD5F5;
+    display:flex;
+}
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#204A75;
+    color:white;
+    position:fixed;
+    left:0;
+    top:0;
+    padding-top:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    padding:15px;
+}
+
+.logo img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    margin-right:10px;
+}
+
+.logo h2{
+    font-size:18px;
+}
+
+.sidebar nav{
+    margin-top:30px;
+}
+
+.sidebar nav a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    transition:0.3s;
+}
+
+.sidebar nav a:hover{
+    background:#202075;
+}
+
+
+.main{
+    margin-left:220px;
+    width:calc(100% - 220px);
+}
+
+
+header{
+    background:#1B3B5C;
+    color:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+header h1{
+    font-size:28px;
+}
+
+
+.search-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.search-box input{
+    padding:8px;
+    border:none;
+    border-radius:5px;
+    width:220px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.profile a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.profile img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+
+
+section{
+    background:white;
+    margin:20px;
+    padding:20px;
+    border-radius:10px;
+}
+
+section h2{
+    color:#063E61;
+    margin-bottom:15px;
+}
+
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table, th, td{
+    border:1px solid #ccc;
+}
+
+th, td{
+    padding:10px;
+    text-align:center;
+}
+
+
+.galeria{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.galeria img{
+    width:250px;
+    border-radius:10px;
+}
+
+
+footer{
+    background:#00476B;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+footer a{
+    color:#74CDF7;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+.version{
+    margin-top:10px;
+    color:#cbd5e1;
+}
+
+.search-box button{
+    padding:8px 15px;
+    border:none;
+    background:#075591;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.search-box button:hover{
+    background:#1d4ed8;
+}
+
+.boton-precios{
+    display:inline-block;
+    margin-top:15px;
+    background:#005F6E;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:6px;
+}
+
+.boton-precios:hover{
+    background:#005F6E;
+}
+
+.boton-bitacora{
+    display:inline-block;
+    background:#005F6E;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:6px;
+}
+
+.boton-bitacora:hover{
+    background:#1d4ed8;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="sidebar">
+
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+        <h2>Jordy R Tech</h2>
+    </div>
+
+    <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="precios.html">Precios</a>
+        <a href="bitacora.html">Bitácora</a>
+        <a href="#galeria">Galería</a>
+        <a href="#empresa">Empresa</a>
+    </nav>
+
+</div>
+
+
+<div class="main">
+
+    
+
+    <header>
+
+        <h1>Soporte Tecnico Profesional</h1>
+
+        <div class="search-box">
+
+    <input 
+        type="text" 
+        id="busqueda"
+        placeholder="Búsqueda global..."
+    >
+
+    <button onclick="buscarContenido()">
+        Buscar
+    </button>
+
+</div>
+
+        <div class="profile">
+            <img src="profile.png" alt="Perfil">
+
+            
+            <a href="login.html">Iniciar sesión</a>
+            <a href="registro.html">Crear cuenta</a>
+            <a href="recuperar.html">Olvidé mi contraseña</a>
+        </div>
+
+
+    </header>
+
+   
+
+    <section id="servicios">
+        <h2>Servicios</h2>
+
+        <p>
+            Reparación de computadoras, instalación de software,
+            mantenimiento preventivo, limpieza interna,
+            recuperación de archivos y soporte técnico profesional.
+        </p>
+    </section>
+
+
+    <section id="precios">
+
+        <h2>Precios</h2>
+
+        <table>
+
+            <tr>
+                <th>Servicio</th>
+                <th>Precio</th>
+            </tr>
+
+            <tr>
+                <td>Mantenimiento básico</td>
+                <td>$500 MXN</td>
+            </tr>
+
+            <tr>
+                <td>Instalación de software</td>
+                <td>$350 MXN</td>
+            </tr>
+
+            <tr>
+                <td>Reparación avanzada</td>
+                <td>$1200 MXN</td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <a href="precios.html" class="boton-precios">
+                 Ver más precios
+        </a>
+
+    </section>
+
+
+<section id="bitacora">
+
+    <h2>Bitácora de Servicios</h2>
+
+    <ul>
+        <li>01/05/2026 - Reparación de equipo</li>
+        <li>03/05/2026 - Instalación de software</li>
+        <li>05/05/2026 - Mantenimiento preventivo</li>
+    </ul>
+
+    <br>
+
+    <a href="bitacora.html" class="boton-bitacora">
+        Ver bitácora completa
+    </a>
+
+</section>
+
+
+    <section id="galeria">
+
+        <h2>Galería</h2>
+
+        <div class="galeria">
+
+            <img src="imagen_1.png" alt="Imagen 1">
+            <img src="imagen_2.png" alt="Imagen 2">
+            <img src="imagen_3.png" alt="Imagen 3">
+            <img src="imagen_4.png" alt="Imagen 4">
+
+        </div>
+
+        <br>
+
+       <video controls autoplay muted loop width="500">
+            <source src="video_1.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+
+    </section>
+
+   
+    <section id="empresa">
+
+        <h2>Información de la Empresa</h2>
+
+        <p>
+            JRT ofrece soporte técnico profesional para equipos
+            de cómputo, instalación de sistemas operativos, eliminación de virus, configuración de redes y ensamblaje de equipos brindando atención rápida, segura y confiable.
+        </p>
+
+    </section>
+
+    
+
+    <footer>
+
+        <a href="terminos.html">Términos y condiciones</a>
+        <a href="soporte.html">Soporte</a>
+        <a href="contacto.html">Contacto</a>
+
+        <div class="version">
+            Versión 1.0.4
+        </div>
+
+    </footer>
+
+</div>
+
+<script>
+
+function buscarContenido(){
+
+    let busqueda =
+    document.getElementById("busqueda")
+    .value
+    .toLowerCase();
+
+    let secciones =
+    document.querySelectorAll("section");
+
+    let encontrado = false;
+
+    secciones.forEach(function(seccion){
+
+        let texto =
+        seccion.innerText.toLowerCase();
+
+        if(texto.includes(busqueda)){
+
+            seccion.scrollIntoView({
+                behavior:"smooth"
+            });
+
+            seccion.style.border =
+            "3px solid #2563eb";
+
+            setTimeout(function(){
+
+                seccion.style.border =
+                "none";
+
+            },2000);
+
+            encontrado = true;
+        }
+
+    });
+
+    if(!encontrado){
+
+        alert("No se encontraron resultados");
+
+    }
+
+}
+
+</script>
+</body>
+</html>
